@@ -6,11 +6,11 @@ module.exports={
         password: process.env.DB_PASSWORD,
         options:{
             dialect: process.env.DB_DIALECT,
-            host: process.env.DB_DIALECT,
-            port: process.env.DB_DIALECT
+            host: process.env.DB_HOST,
+            port: process.env.DB_PORT
         }
     },
     authentication:{
-        jwtSecret:process.env.DB_DIALECT
+        jwtSecret:process.env.JWT_SECRET
     }
 }
