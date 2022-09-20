@@ -1,0 +1,1 @@
+docker run -d -it -p 127.0.0.1:3002:3002 -e MYSQL_ROOT_PASSWORD=bms123 -v C:\Develop\DockerAPP:\var\lib\mysql --name rest_api mariadb:latest

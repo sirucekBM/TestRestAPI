@@ -1,12 +1,17 @@
 require('dotenv').config();
 const express = require("express");
 const config = require('./src/config/config');
+const { sequelize } = require('./src/models');
 const app = express();
 
-app.listen(config.app_port);
-console.log(`server běží na portě: ${config.app_port}.`);
-
 app.use(express.json({
-    type: ['application/json', 'text/plain']
+    type:['application/json', 'text/plain']
 }));
 
+require('./src/routes')(app)
+
+sequelize.sync()
+    .then((result) => {
+        app.listen(config.app_port)
+        console.log(`Server is running at port ${config.app_port}`);
+    });
