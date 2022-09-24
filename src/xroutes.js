@@ -1,9 +1,8 @@
 const CoursesController = require('./controllers/CoursesControllers');
-const AuthenticationController = require('./controllers/AuthenticationController');
-const AuthorizationController = require('./controllers/AuthorizationController');
+const AuthenticationController = require('./controllers/AuthenticationController')
+const AuthorizationController = require('./controllers/AutorizationController')
 
 module.exports = (app) => {
-    /******** COURSES *******/
     app.post('/api/register',
     AuthenticationController.register)
 
@@ -12,8 +11,9 @@ module.exports = (app) => {
 
     app.get('/api/logout',
     AuthenticationController.logout)
-
-    /******** COURSES *******/
+    
+    
+    /***********Courses*********/
     app.get('/api/courses',
     AuthorizationController.validateLogin,
     CoursesController.index)
